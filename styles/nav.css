@@ -1,4 +1,4 @@
-.nav {
-  background: red; }
+.nav > li > a {
+  color: red; }
 
 /*# sourceMappingURL=nav.css.map */

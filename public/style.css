@@ -3,7 +3,7 @@
 
 /*# sourceMappingURL=dashboard.css.map */
 
-.nav {
-  background: red; }
+.nav > li > a {
+  color: red; }
 
 /*# sourceMappingURL=nav.css.map */

@@ -28,6 +28,12 @@ module.exports = function (grunt) {
 				}
 			}
 		},
+		watch: {
+		    src: {
+		      files: ['styles/*.scss'],
+		      tasks: ['default'],
+		    }
+		  },
 		// uglify: {
 		//     css: {
 		//       files: {
@@ -38,8 +44,10 @@ module.exports = function (grunt) {
 	});
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');	
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
 	grunt.registerTask('default', ['sass:dist', 'concat:css', 'cssmin'])
+	grunt.registerTask('watchcss', ['watch'])
 }
