@@ -1,6 +1,7 @@
 extends base
 block body
 	form(method="post")
+		input(type="hidden", name="_csrf", value=_csrf)
 		input.form-control(id="user name", placeholder="Userid", type="text", name="username")
 		input.form-control(id="password", placeholder="Password", type="password", name="password")
 		input.form-control(id="email", placeholder="Email", type="email", name="email")

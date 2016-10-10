@@ -5,9 +5,12 @@ var routeDashboard = require('./routes/dashboard');
 var server_config = require('./config/server');
 var mongoose = require('mongoose');
 var session = require('express-session')
+var csrf = require('csurf');
 mongoose.Promise = global.Promise;
 
 var app = express();
+
+app.locals.pretty = true;
 
 mongoose.connect('mongodb://localhost/auth')
 app.set('view engine', 'pug');
@@ -18,6 +21,11 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true
 }))
+app.use(csrf());
+app.use(function(req, res, next) {
+  res.locals._csrf = req.csrfToken();
+  next();
+});
 // app.use(bodyParser.json());
 app.use(express.static('public'));
 
