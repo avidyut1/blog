@@ -4,6 +4,10 @@ var router = express.Router();
 var bcrypt = require('bcryptjs')
 
 router.get('/', function(req, res){
+	if (req.session.user) {
+		res.redirect('/dashboard');
+		return;
+	}
 	res.render('index');
 });
 

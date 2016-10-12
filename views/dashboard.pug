@@ -1,3 +1,15 @@
-h1 dashboard
-	p= user.name
-	p= user.email
+extends basedash.pug
+block body
+	.container
+		.row
+			.col-md-6
+				h4 All Blog Posts 
+				each post in posts
+					.row
+						p= post.content
+			.col-md-6
+				h4 Create Post
+				form(method='post')
+					input(name='_csrf', value=_csrf, type='hidden')
+					textarea.form-control(name='content', type='string')
+					input.btn.btn-primary(type='submit')
